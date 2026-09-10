@@ -22,7 +22,7 @@ superproject の成熟度 loop（skill `itonami-maturity-improve`）が、この
 |---|---|---|
 | `16e3fc8` | 2026-06-24 | snapshot（manifest / did.json / NOTICE / test.ts / **MIGRATION-NOTES.md**） |
 | `fc616a7` | 2026-07-02 | did:web を `etzhayyim.com` scheme へ移行 |
-| `3e5c3a5` | 2026-07-18 | murakumo WIP の rescue（`src/oil_refining/murakumo.cljc`） |
+| `3e5c3a5` | 2026-07-18 | murakumo WIP の rescue（`src/oil_refining/murakumo.kotoba`） |
 | `2563dbf` | 2026-07-27 | 上の rescue branch を main へ merge |
 
 ## 問題
@@ -253,7 +253,7 @@ collection 化、他 actor の collection の自名前空間への付け替え�
 | `describeRepo`（実 DID / 架空 DID） | どちらも `{"collections":[]}` で 200 |
 | GitHub Pages（両 org） | `404` |
 | `actor-manifest.test.ts` | 11 `it(` / 16 `expect(`、**走らない**（package.json も node_modules も無い） |
-| `src/oil_refining/murakumo.cljc` | 226 行 / 8,832 B |
+| `src/oil_refining/murakumo.kotoba` | 226 行 / 8,832 B |
 | 兄弟の形 | `actors=4` / `pipelines=8` / `handlers=1` は 6 本共通、購読数は 4〜6（`oil-coverage` のみ 6 / 5 / 12 / 0） |
 
 ## 結果
@@ -262,7 +262,7 @@ collection 化、他 actor の collection の自名前空間への付け替え�
 - quickstart の全 bash ブロックを機械抽出して verbatim 実行し、貼った出力と
   一致することを確認した（決定 4）。
 - superproject の west pin を `fc616a7`（2026-07-02）→ `2563dbf` に進めた。旧 pin は
-  2026-07-18 の rescue より前を指しており、**`src/oil_refining/murakumo.cljc`
+  2026-07-18 の rescue より前を指しており、**`src/oil_refining/murakumo.kotoba`
   （226 行の gate）が checkout に現れていなかった**。成熟度 scan は pin ではなく
   checkout を読むので、この repo の substrate は 0 と測られていた —— pin を正した
   副産物として、その過小評価も解消される（`axis-substrate` は loop の目標軸ではない）。

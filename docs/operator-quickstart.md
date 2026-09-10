@@ -20,11 +20,11 @@ checkout されている前提（superproject の `orgs/cloud-itonami/`）。無
 `src/` が無ければ、west の pin が `2563dbf` より前を指している。
 
 ```bash
-ls src/oil_refining/murakumo.cljc && git log --oneline -1
+ls src/oil_refining/murakumo.kotoba && git log --oneline -1
 ```
 
 ```
-src/oil_refining/murakumo.cljc
+src/oil_refining/murakumo.kotoba
 2563dbf Merge pull request #1 from etzhayyim/rescue/murakumo-wip-20260718
 ```
 
