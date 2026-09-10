@@ -20,7 +20,7 @@
 | | ここにあるか |
 |---|---|
 | actor が**何を名乗り、何を要求し、どの pipeline を持つと宣言しているか** | **ある**（`actor-manifest.jsonld` 8,553 B / `.well-known/did.json` 730 B） |
-| **gate**（attestation が 7 つ揃わなければ effect を 1 つも出さない判断） | **ある**（`src/oil_refining/murakumo.cljc`、226 行 / 8,832 B） |
+| **gate**（attestation が 7 つ揃わなければ effect を 1 つも出さない判断） | **ある**（`src/oil_refining/murakumo.kotoba`、226 行 / 8,832 B） |
 | 製油所を数えるグラフ、cron を撃つ scheduler、XRPC を受ける server | **無い** |
 | 製油所・装置・停止の実データ | **無い** |
 | **歩留まり（yield）のデータモデル** | **無い**（名前と散文にしか存在しない。後述） |
@@ -72,7 +72,7 @@ kamado 側で先に済んでおり、この notes がそれに追随していな
 
 | 出所 | 名乗り | 2026-08-09 実測 |
 |---|---|---|
-| `actor-manifest.jsonld` の `@id`<br>`src/oil_refining/murakumo.cljc` の `actor-did` | `did:web:oil-refining.etzhayyim.com` | **解決しない**。`oil-refining.etzhayyim.com` に A/AAAA レコードが無く、`curl` は `000`（接続前に失敗） |
+| `actor-manifest.jsonld` の `@id`<br>`src/oil_refining/murakumo.kotoba` の `actor-did` | `did:web:oil-refining.etzhayyim.com` | **解決しない**。`oil-refining.etzhayyim.com` に A/AAAA レコードが無く、`curl` は `000`（接続前に失敗） |
 | `.well-known/did.json` の `id` | `did:web:etzhayyim.com:actor:oil-refining` | **解決する**。`https://etzhayyim.com/actor/oil-refining/did.json` が `200` |
 
 **gate が名乗るのは解決しない方**である（`murakumo.cljc:6`）。effect の
@@ -269,7 +269,7 @@ cloud-itonami に `actor-manifest.jsonld` を持つ repo は **39 本**あり、
 
 ## gate は何を止めるか
 
-`src/oil_refining/murakumo.cljc` は **16 cell × 7 gate** の deny-by-default。
+`src/oil_refining/murakumo.kotoba` は **16 cell × 7 gate** の deny-by-default。
 7 つの attestation が 1 つでも欠けると `:status :blocked` で `:effects` は空になる
 （実測: 6/7 揃えても `:blocked`、`all-cell-plans` は 16 cell 全部 blocked で総 effect 数 0。
 7/7 揃えると 16 cell すべて `:ready` で effect 16）。
@@ -349,7 +349,7 @@ commit は 4 本だけ:
 |---|---|---|
 | `16e3fc8` | 2026-06-24 | snapshot（manifest / did.json / NOTICE / test.ts / **MIGRATION-NOTES.md**） |
 | `fc616a7` | 2026-07-02 | did:web を `etzhayyim.com` scheme へ移行 |
-| `3e5c3a5` | 2026-07-18 | murakumo WIP の rescue（`src/oil_refining/murakumo.cljc`） |
+| `3e5c3a5` | 2026-07-18 | murakumo WIP の rescue（`src/oil_refining/murakumo.kotoba`） |
 | `2563dbf` | 2026-07-27 | 上の rescue branch を main へ merge |
 
 **`MIGRATION-NOTES.md` は最初の snapshot から在った** —— つまりこの repo は
@@ -363,7 +363,7 @@ commit は 4 本だけ:
   `marine-insurance` は `test/…/docs_test.cljs` でこれを固定している —— 同じものが
   ここにも要る。
 - **west pin が遅れていた。** superproject の pin は `fc616a7`（2026-07-02）で、
-  `src/oil_refining/murakumo.cljc` を含む `2563dbf` を指していなかった。この
+  `src/oil_refining/murakumo.kotoba` を含む `2563dbf` を指していなかった。この
   README を書く時点で main に合わせている。
 - **`MIGRATION-NOTES.md` を直していない**（古いパスと `python3` 手順のまま）。
   正しい手順を持つのは kamado 側であり、そこを直すのはこの repo の権限ではない。
