@@ -69,7 +69,7 @@ grep -rl 'oil-refining' ../kamado --include='*.edn' --include='*.md' \
 ```
 
 ```
-../kamado/CLAUDE.md
+../kamado/AGENTS.md
 ../kamado/README.md
 ../kamado/data/seed.edn
 ../kamado/manifest.edn

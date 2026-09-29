@@ -43,7 +43,7 @@
 
 **関係は片側だけの主張ではなく相互に宣言されている。** kamado 側で
 `oil-refining` に言及するファイルは **9 本**（`manifest.edn` / `wire/manifest.jsonld` /
-`CLAUDE.md` / `README.md` / `data/seed.edn` / `src/kamado/methods/analyze.cljc` /
+`AGENTS.md` / `README.md` / `data/seed.edn` / `src/kamado/methods/analyze.cljc` /
 `src/kamado/methods/ingest.cljc` / `test/kamado/methods/test_ingest.cljc` /
 `wire/ingest/legacy-oil-refining-export.sample.json`）で、いずれも
 「legacy `oil-refining` の kotoba-native な後継」という位置づけで書かれている。
